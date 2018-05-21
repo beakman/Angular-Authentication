@@ -15,7 +15,8 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
-import { SpecialEventsComponent } from './special-events/special-events.component';
+import { MemberComponent } from './members/member.component';
+import { NewEventComponent } from './events/new-event.component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { SpecialEventsComponent } from './special-events/special-events.componen
         RegisterComponent,
         LoginComponent,
         EventsComponent,
-        SpecialEventsComponent
+        MemberComponent,
+        NewEventComponent
     ],
     providers: [
         AuthService,

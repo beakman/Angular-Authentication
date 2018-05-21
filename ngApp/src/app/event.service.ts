@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class EventService {
     private _eventsUrl = 'http://localhost:3000/api/events';
-    private _specialEventsUrl = 'http://localhost:3000/api/special';
+    private _membersUrl = 'http://localhost:3000/api/members';
 
     constructor(private _http: HttpClient) { }
 
@@ -19,11 +19,11 @@ export class EventService {
     }
 
     /**
-     * get list of special events
+     * get list of all members
      *
      * @returns {Observable<any>}
      */
-    public getSpecialEvents() {
-        return this._http.get<any>(this._specialEventsUrl);
+    public getMembers() {
+        return this._http.get<any>(this._membersUrl);
     }
 }

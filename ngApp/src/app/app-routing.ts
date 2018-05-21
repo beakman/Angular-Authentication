@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // app
 import { AuthGuard } from './auth.guard';
 
-import { SpecialEventsComponent } from './special-events/special-events.component';
+import { MemberComponent } from './members/member.component';
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
 import { LoginComponent } from './login/login.component';
@@ -30,8 +30,8 @@ const routes: Routes = [
         component: EventsComponent
     },
     {
-        path: 'special',
-        component: SpecialEventsComponent,
+        path: 'members',
+        component: MemberComponent,
         canActivate: [AuthGuard]
     }
 ];
