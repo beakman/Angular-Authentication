@@ -1,9 +1,7 @@
 # Angular Authentication
-Authentication with JSON Web Tokens (JWT) using Angular-CLI
+MEAN STACK Application - Authentication with JSON Web Tokens (JWT) using Angular-CLI
 
-## MEAN STACK
-
-#### Covers
+#### Content
 - [X] Setup Express Server
 - [X] Setup MongoDB
 - [X] Create RESTful APIs
@@ -13,4 +11,4 @@ Authentication with JSON Web Tokens (JWT) using Angular-CLI
     - Fetch list of members
 - [X] Test APIs using Postman
 - [X] Add Authentication
-- [ ] Angular App using Angular-CLI
+- [X] Angular App using Angular-CLI
