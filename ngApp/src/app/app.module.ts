@@ -6,16 +6,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // app
 import { AppRoutingModule } from './app-routing';
-import { AuthService } from './auth.service';
+import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthGuard } from './auth.guard';
 import { EventService } from './event.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './events/events.component';
-import { MemberComponent } from './members/member.component';
+import { AllEventsComponent } from './events/all-events.component';
 import { NewEventComponent } from './events/new-event.component';
 
 @NgModule({
@@ -23,18 +20,15 @@ import { NewEventComponent } from './events/new-event.component';
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        AuthenticationModule
     ],
     declarations: [
         AppComponent,
-        RegisterComponent,
-        LoginComponent,
-        EventsComponent,
-        MemberComponent,
+        AllEventsComponent,
         NewEventComponent
     ],
     providers: [
-        AuthService,
         AuthGuard,
         EventService,
         {
@@ -43,7 +37,7 @@ import { NewEventComponent } from './events/new-event.component';
             multi: true
         }
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [ AppComponent ]
 })
 
 export class AppModule { }

@@ -3,14 +3,14 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
 
 // app
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './authentication/services/authentication.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
     private _authService: any;
 
     constructor(private _injector: Injector) {
-        this._authService = this._injector.get(AuthService);
+        this._authService = this._injector.get(AuthenticationService);
     }
 
     /**
@@ -21,7 +21,7 @@ export class TokenInterceptorService implements HttpInterceptor {
      * @returns {any}
      */
     intercept(req, next) {
-        const _authService = this._injector.get(AuthService);
+        const _authService = this._injector.get(AuthenticationService);
         const tokenizedReq = req.clone({
             setHeaders: {
                 Authorization: `Bearer ${this._authService.getToken()}`

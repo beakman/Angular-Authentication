@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class AuthService {
+export class AuthenticationService {
     private _loginUrl = 'http://localhost:3000/api/login';
     private _registerUrl = 'http://localhost:3000/api/register';
 

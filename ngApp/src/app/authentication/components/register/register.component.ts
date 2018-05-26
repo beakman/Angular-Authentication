@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // app
-import { AuthService } from '../auth.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
     selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     public registerUserData = {};
 
     constructor(
-        private _authService: AuthService,
+        private _authService: AuthenticationService,
         private _router: Router
     ) { }
 
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(
                 res => {
                     localStorage.setItem('token', res.token);
-                    this._router.navigate(['/members']);
+                    this._router.navigate(['/events']);
                 },
                 err => console.log(err)
             );

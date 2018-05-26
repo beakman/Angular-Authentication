@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 // app
 import { AuthGuard } from './auth.guard';
 
-import { MemberComponent } from './members/member.component';
-import { RegisterComponent } from './register/register.component';
-import { EventsComponent } from './events/events.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './authentication/components/register/register.component';
+import { LoginComponent } from './authentication/components/login/login.component';
+import { NewEventComponent } from './events/new-event.component';
+import { AllEventsComponent } from './events/all-events.component';
 
-// routes v
+// routes
 const routes: Routes = [
     {
         path: '',
@@ -26,12 +26,13 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'events',
-        component: EventsComponent
+        path: 'new-event',
+        component: NewEventComponent,
+        canActivate: [AuthGuard]
     },
     {
-        path: 'members',
-        component: MemberComponent,
+        path: 'events',
+        component: AllEventsComponent,
         canActivate: [AuthGuard]
     }
 ];

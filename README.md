@@ -9,7 +9,10 @@ MEAN STACK Application - Authentication with JSON Web Tokens (JWT) using Angular
 - [X] Create RESTful APIs
     - Register a new user
     - Login an existing user
-    - Fetch list of events
-    - Fetch list of members
+    - Events (only logged in users can access)
+        - Add an event
+        - Update an event
+        - Delete an event
+        - Show list of events
 - [X] Test APIs using Postman
 - [X] Angular App using Angular-CLI

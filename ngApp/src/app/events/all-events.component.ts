@@ -7,25 +7,25 @@ import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 
 @Component({
-    selector: 'app-member',
-    templateUrl: './member.component.html',
-    styleUrls: ['./member.component.css']
+    selector: 'app-new-events',
+    templateUrl: './all-events.component.html',
+    styleUrls: ['./all-events.component.css']
 })
 
-export class MemberComponent implements OnInit {
-    public memberList = [];
+export class AllEventsComponent implements OnInit {
+    public eventsList = [];
 
     constructor(
-        private _memberService: EventService,
+        private _eventsService: EventService,
         private _router: Router
     ) { }
 
     ngOnInit() {
-        // get a list of all members
-        this._memberService
-            .getMembers()
+        // get a list of events
+        this._eventsService
+            .getEvents()
             .subscribe(
-                res => this.memberList = res,
+                res => this.eventsList = res,
                 err => {
                     if (err instanceof HttpErrorResponse) {
                         if (err.status === 401 || err.status === 500) {

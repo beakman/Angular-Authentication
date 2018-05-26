@@ -1,3 +1,4 @@
+// angular
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './new-event.component.html',
   styleUrls: ['./new-event.component.css']
 })
+
 export class NewEventComponent implements OnInit {
+    public eventData = {};
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() { }
 
+    public onClickNewEvent() {
+        console.log(this.eventData);
+    }
 }
