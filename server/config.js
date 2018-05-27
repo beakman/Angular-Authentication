@@ -1,7 +1,8 @@
 const config = {
     dev: {
         app: {
-            port: 3000
+            port: 3000,
+            secret_key : 'secretKey'
         },
 
         db: {

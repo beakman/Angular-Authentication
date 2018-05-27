@@ -1,27 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
-const secretKey = "secretKey";
 
 // registration
 router.post('/register', (req, res) => {
-    const userData = req.body;
-    let user = new User(userData);
+    let user = new User();
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.setPassword(req.body.password);
 
-    User.findOne({email: userData.email}, (error, resUser) => {
+    User.findOne({email: user.email}, (error, userFound) => {
         if (error) {
             console.log("Error: " + error);
         } else {
             // validate: user exists or not
-            if (!resUser) {
+            if (!userFound) {
                 // save user account
-                user.save((error, registeredUser) => {
+                user.save((error) => {
                     if (error) {
                         console.log("Error: " + error);
                     } else {
-                        let payload = { subject: registeredUser._id };
-                        let token = jwt.sign(payload, secretKey);
+                        let token = user.generateJWT();
                         res.status(200).send({token});
                     }
                 });

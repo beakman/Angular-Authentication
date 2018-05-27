@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // app
-import { AuthGuard } from './auth.guard';
+import { AuthenticationGuard } from './authentication/guards/authentication.guard';
 
 import { RegisterComponent } from './authentication/components/register/register.component';
 import { LoginComponent } from './authentication/components/login/login.component';
-import { NewEventComponent } from './events/new-event.component';
-import { AllEventsComponent } from './events/all-events.component';
+import { NewEventComponent } from './events/components/new-event.component';
+import { AllEventsComponent } from './events/components/all-events.component';
 
 // routes
 const routes: Routes = [
@@ -28,12 +28,12 @@ const routes: Routes = [
     {
         path: 'new-event',
         component: NewEventComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthenticationGuard]
     },
     {
         path: 'events',
         component: AllEventsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthenticationGuard]
     }
 ];
 

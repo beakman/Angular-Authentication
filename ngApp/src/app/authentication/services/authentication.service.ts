@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
+    private _userUrl = 'http://localhost:3000/api/user';
     private _loginUrl = 'http://localhost:3000/api/login';
     private _registerUrl = 'http://localhost:3000/api/register';
 
@@ -40,6 +41,15 @@ export class AuthenticationService {
      */
     public loggedIn() {
         return !!localStorage.getItem('token');
+    }
+
+    /**
+     * get current (logged in) user
+     *
+     * @returns {Observable<any>}
+     */
+    public getCurrentUser() {
+        return this._http.get<any>(this._userUrl);
     }
 
     /**

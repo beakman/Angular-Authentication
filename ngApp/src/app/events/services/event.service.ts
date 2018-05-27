@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class EventService {
-    private _userUrl = 'http://localhost:3000/api/user';
     private _eventsUrl = 'http://localhost:3000/api/events';
 
     constructor(private _http: HttpClient) { }
@@ -16,14 +15,5 @@ export class EventService {
      */
     public getEvents() {
         return this._http.get<any>(this._eventsUrl);
-    }
-
-    /**
-     * get logged in user
-     *
-     * @returns {Observable<any>}
-     */
-    public getUser() {
-        return this._http.get<any>(this._userUrl);
     }
 }

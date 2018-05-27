@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 // app
-import { EventService } from '../event.service';
+import { EventService } from '../services/event.service';
 
 @Component({
     selector: 'app-new-events',
