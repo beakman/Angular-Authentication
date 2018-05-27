@@ -39,7 +39,7 @@ export class AuthenticationService {
      *
      * @returns {boolean}
      */
-    public loggedIn() {
+    public isLoggedIn() {
         return !!localStorage.getItem('token');
     }
 
@@ -56,26 +56,32 @@ export class AuthenticationService {
      * remove token to logout the user.
      */
     public logoutUser() {
-        localStorage.removeItem('token');
+        this.removeToken();
         this._router.navigate(['/events']);
     }
 
     /**
-     * set token data
+     * set token
      *
-     * @param item
      * @param value
      */
-    public setToken(item, value) {
-        return localStorage.setItem(item, value);
+    public setToken(value) {
+        return localStorage.setItem('token', value);
     }
 
     /**
-     * get token data
+     * get token
      *
      * @returns {string | null}
      */
     public getToken() {
         return localStorage.getItem('token');
+    }
+
+    /**
+     * remove token
+     */
+    public removeToken() {
+        localStorage.removeItem('token');
     }
 }
