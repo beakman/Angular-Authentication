@@ -61,7 +61,17 @@ export class AuthenticationService {
     }
 
     /**
-     * get token value
+     * set token data
+     *
+     * @param item
+     * @param value
+     */
+    public setToken(item, value) {
+        return localStorage.setItem(item, value);
+    }
+
+    /**
+     * get token data
      *
      * @returns {string | null}
      */

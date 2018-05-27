@@ -5,7 +5,9 @@ const verify_token = require('./token-verification');
 
 // get: specific member
 router.get('/user', verify_token.validate, (req, res) => {
-    User.find({}, (err, user) => {
+    const userData = req.body;
+
+    User.find({ email: userData.email }, (err, user) => {
         if (err) {
             res.json(err);
         } else {
