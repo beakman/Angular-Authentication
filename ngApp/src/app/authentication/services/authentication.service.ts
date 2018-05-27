@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+// app
+import { UserInterface } from '../interfaces/user.interface';
+
 @Injectable()
 export class AuthenticationService {
     private _userUrl = 'http://localhost:3000/api/user';
@@ -39,17 +42,26 @@ export class AuthenticationService {
      *
      * @returns {boolean}
      */
-    public isLoggedIn() {
-        return !!localStorage.getItem('token');
+    public isLoggedIn(): boolean {
+        const user = this.getCurrentUser();
+        if (user) {
+            // validate: expiry date
+            return user.exp > Date.now() / 1000;
+        } else { return false; }
     }
 
     /**
      * get current (logged in) user
      *
-     * @returns {Observable<any>}
+     * @returns {UserInterface}
      */
-    public getCurrentUser() {
-        return this._http.get<any>(this._userUrl);
+    public getCurrentUser(): UserInterface {
+        const token = this.getToken();
+        if (token) {
+            let payload = token.split('.')[1];
+            payload = window.atob(payload);
+            return JSON.parse(payload);
+        } else { return null; }
     }
 
     /**
