@@ -1,13 +1,24 @@
 const jwt = require('jsonwebtoken');
-const secretKey = "secretKey";
+
+// environment
+const env = process.env.NODE_ENV || 'dev'; // NODE_ENV: set in package.json
+const config = require('../config')[env];
 
 // token verification
 const tokenVerification = {
+    /**
+     * validate token
+     *
+     * @param req
+     * @param res
+     * @param next
+     * @returns {*}
+     */
     validate: (req, res, next) => {
         let token = req && req.headers && req.headers.authorization && req.headers.authorization.split(' ')[1];
 
         if (token) {
-            jwt.verify(token, secretKey, (err, payload) => {
+            jwt.verify(token, config.app.secret_key, (err, payload) => {
                 if (err) {
                     return res.status(500).send('JsonWebTokenError: jwt malformed! Invalid Token!');
                 }

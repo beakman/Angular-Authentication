@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const secretKey = "secretKey";
 
 const register = require('./register');
 const login = require('./login');
