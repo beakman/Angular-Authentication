@@ -9,7 +9,7 @@ import { EventService } from '../services/event.service';
 @Component({
     selector: 'app-new-events',
     templateUrl: './all-events.component.html',
-    styleUrls: ['./all-events.component.css']
+    styleUrls: ['./all-events.component.scss']
 })
 
 export class AllEventsComponent implements OnInit {

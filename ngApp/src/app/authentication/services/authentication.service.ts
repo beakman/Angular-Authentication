@@ -8,7 +8,6 @@ import { UserInterface } from '../interfaces/user.interface';
 
 @Injectable()
 export class AuthenticationService {
-    private _userUrl = 'http://localhost:3000/api/user';
     private _loginUrl = 'http://localhost:3000/api/login';
     private _registerUrl = 'http://localhost:3000/api/register';
 
@@ -69,7 +68,7 @@ export class AuthenticationService {
      */
     public logoutUser() {
         this.removeToken();
-        this._router.navigate(['/events']);
+        this._router.navigate(['/']);
     }
 
     /**

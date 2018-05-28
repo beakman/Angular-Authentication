@@ -34,6 +34,10 @@ const routes: Routes = [
         path: 'events',
         component: AllEventsComponent,
         canActivate: [AuthenticationGuard]
+    },
+    {
+        path: '**', // 404
+        redirectTo: '/events'
     }
 ];
 
