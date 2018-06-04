@@ -43,9 +43,8 @@ export class AuthenticationService {
      */
     public isLoggedIn(): boolean {
         const user = this.getCurrentUser();
-        if (user) {
-            // validate: expiry date
-            return user.payload.exp > Date.now() / 1000;
+        if (user && user.payload) {
+            return user.payload.exp > Date.now() / 1000; // validate: expiry date
         } else { return false; }
     }
 
@@ -77,7 +76,7 @@ export class AuthenticationService {
      * @param value
      */
     public setToken(value) {
-        return localStorage.setItem('token', value);
+        localStorage.setItem('token', value);
     }
 
     /**
@@ -86,13 +85,26 @@ export class AuthenticationService {
      * @returns {string | null}
      */
     public getToken() {
-        return localStorage.getItem('token');
+        if (this.isToken) {
+            return localStorage.getItem('token');
+        }
     }
 
     /**
      * remove token
      */
     public removeToken() {
-        localStorage.removeItem('token');
+        if (this.isToken) {
+            localStorage.removeItem('token');
+        }
+    }
+
+    /**
+     * check if token is available
+     *
+     * @returns {boolean}
+     */
+    public isToken(): boolean {
+        return localStorage.getItem('token') !== null;
     }
 }
