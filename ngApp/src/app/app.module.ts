@@ -7,7 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // app
 import { AppRoutingModule } from './app-routing';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { EventsModule } from './events/events.module';
+import { ProfileModule } from './profile/profile.module';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AppComponent } from './app.component';
 
@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
         HttpClientModule,
         AppRoutingModule,
         AuthenticationModule,
-        EventsModule
+        ProfileModule
     ],
     declarations: [ AppComponent ],
     providers: [{

@@ -7,14 +7,13 @@ import { AuthenticationGuard } from './authentication/guards/authentication.guar
 
 import { RegisterComponent } from './authentication/components/register/register.component';
 import { LoginComponent } from './authentication/components/login/login.component';
-import { NewEventComponent } from './events/components/new-event.component';
-import { AllEventsComponent } from './events/components/all-events.component';
+import { ProfileComponent } from './profile/components/profile.component';
 
 // routes
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/events',
+        redirectTo: '/profile',
         pathMatch: 'full'
     },
     {
@@ -26,18 +25,13 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'new-event',
-        component: NewEventComponent,
-        canActivate: [AuthenticationGuard]
-    },
-    {
-        path: 'events',
-        component: AllEventsComponent,
+        path: 'profile',
+        component: ProfileComponent,
         canActivate: [AuthenticationGuard]
     },
     {
         path: '**', // 404
-        redirectTo: '/events'
+        redirectTo: '/profile'
     }
 ];
 

@@ -1,1 +1,7 @@
-.au-logout a { cursor: pointer; }
+.au-wrapper {
+    .au-logout {
+        a {
+            cursor: pointer;
+        }
+    }
+}

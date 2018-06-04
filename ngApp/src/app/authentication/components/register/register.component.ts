@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(
                 res => {
                     this._authService.setToken(res.token);
-                    this._router.navigate(['/events']);
+                    this._router.navigate(['/profile']);
                 },
                 err => console.log(err)
             );
