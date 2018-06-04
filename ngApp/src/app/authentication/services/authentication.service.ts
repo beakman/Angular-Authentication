@@ -45,7 +45,7 @@ export class AuthenticationService {
         const user = this.getCurrentUser();
         if (user) {
             // validate: expiry date
-            return user.exp > Date.now() / 1000;
+            return user.payload.exp > Date.now() / 1000;
         } else { return false; }
     }
 
@@ -68,7 +68,7 @@ export class AuthenticationService {
      */
     public logoutUser() {
         this.removeToken();
-        this._router.navigate(['/']);
+        this._router.navigate(['/login']);
     }
 
     /**
